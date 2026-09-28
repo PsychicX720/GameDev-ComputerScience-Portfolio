@@ -5,18 +5,497 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Game Development Portfolio</title>
+    <title>Nicholas Burtram | Game Developer</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            background-color: #111827;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #334155;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h2 {
+            margin: 0;
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: #f1f5f9;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            color: #38bdf8;
+            font-size: 1.8rem;
+            margin-top: 0;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: 20px auto;
+            color: #cbd5e1;
+            font-size: 1.1rem;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #38bdf8;
+            color: #0f172a;
+            padding: 12px 24px;
+            margin: 10px 5px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #7dd3fc;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 70px 0;
+        }
+
+        section h2.section-title {
+            font-size: 2.3rem;
+            margin-bottom: 35px;
+            border-bottom: 3px solid #38bdf8;
+            padding-bottom: 10px;
+        }
+
+        /* ABOUT */
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            max-width: 900px;
+        }
+
+        /* PROJECTS */
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 28px;
+            transition: transform 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: #38bdf8;
+            font-size: 1.4rem;
+            margin-top: 0;
+        }
+
+        .project-card p {
+            color: #cbd5e1;
+        }
+
+        .technologies {
+            color: #f1f5f9 !important;
+        }
+
+        .project-link {
+            color: #38bdf8;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .skill {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 18px;
+            text-align: center;
+            font-size: 1.05rem;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #cbd5e1;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #111827;
+            color: #94a3b8;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav .container {
+                flex-direction: column;
+            }
+
+            nav h2 {
+                margin-bottom: 10px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>My Game Development Portfolio</h1>
+    <!-- NAVIGATION -->
 
-    <p>Welcome to my portfolio! This site showcases my game development projects.</p>
+    <nav>
+        <div class="container">
 
-    <h2>Projects</h2>
+            <h2>Nicholas Burtram</h2>
 
-    <p>My projects will go here.</p>
+            <div>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero">
+
+        <div class="container hero-content">
+
+            <h1>Nicholas Burtram</h1>
+
+            <h2>Game Developer | Programmer | Software Developer</h2>
+
+            <p>
+                Game developer focused on gameplay programming, level design,
+                artificial intelligence, and creating engaging interactive experiences.
+            </p>
+
+            <a class="button" href="#projects">View My Projects</a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <h2 class="section-title">About Me</h2>
+
+            <div class="about-text">
+
+                <p>
+                    I am a game developer, programmer, and software developer
+                    graduating from Full Sail University. I have experience with
+                    C++, C#, Java, Unreal Engine 5, Unity, artificial intelligence,
+                    networking, and gameplay development.
+                </p>
+
+                <p>
+                    I particularly enjoy level design, gameplay behavior, and
+                    developing level concepts. I enjoy combining programming and
+                    design to create engaging gameplay experiences, from building
+                    gameplay systems and AI behaviors to designing the environments
+                    in which those systems come together.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <div class="container">
+
+            <h2 class="section-title">Projects</h2>
+
+            <div class="project-grid">
+
+
+                <!-- UNREAL ENGINE AI AND COMBAT -->
+
+                <div class="project-card">
+
+                    <h3>Unreal Engine AI and Combat System</h3>
+
+                    <p>
+                        Developed gameplay systems in Unreal Engine using C++ and
+                        Blueprints. The project includes AI-controlled agents,
+                        weapons, projectiles, health and damage systems, team
+                        assignments, animations, and combat behaviors.
+                    </p>
+
+                    <p class="technologies">
+                        <strong>Technologies:</strong>
+                        Unreal Engine 5, C++, Blueprints
+                    </p>
+
+                </div>
+
+
+                <!-- A* PATH PLANNER -->
+
+                <div class="project-card">
+
+                    <h3>A* Hex Path Planner</h3>
+
+                    <p>
+                        Created an A* pathfinding system for a hex-based map.
+                        The system calculates movement and heuristic costs,
+                        tracks explored nodes, and generates a path between
+                        a starting point and destination.
+                    </p>
+
+                    <p class="technologies">
+                        <strong>Technologies:</strong>
+                        C++, Artificial Intelligence, A* Search
+                    </p>
+
+                </div>
+
+
+                <!-- BRICK BREAKER -->
+
+                <div class="project-card">
+
+                    <h3>Brick Breaker</h3>
+
+                    <p>
+                        Developed a Brick Breaker style game featuring
+                        player-controlled movement, ball interaction,
+                        collision detection, and breakable game objects.
+                    </p>
+
+                    <p class="technologies">
+                        <strong>Skills:</strong>
+                        Game Programming, Collision Detection, Gameplay Logic
+                    </p>
+
+                </div>
+
+
+                <!-- TCP CHAT SERVER -->
+
+                <div class="project-card">
+
+                    <h3>TCP Chat Server</h3>
+
+                    <p>
+                        Developed a TCP chat server that supports multiple
+                        connected clients, user registration and login,
+                        private messages, public messages, command processing,
+                        and message logging.
+                    </p>
+
+                    <p class="technologies">
+                        <strong>Technologies:</strong>
+                        C++, Winsock, TCP/IP, Networking
+                    </p>
+
+                </div>
+
+
+                <!-- CALCULATOR -->
+
+                <div class="project-card">
+
+                    <h3>Calculator</h3>
+
+                    <p>
+                        Developed a calculator application that performs common
+                        mathematical operations while practicing programming
+                        logic, user input, and application development.
+                    </p>
+
+                    <p class="technologies">
+                        <strong>Skills:</strong>
+                        Programming Logic, User Input, Application Development
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <h2 class="section-title">Skills</h2>
+
+            <div class="skills-grid">
+
+                <div class="skill">C++</div>
+                <div class="skill">C#</div>
+                <div class="skill">Java</div>
+                <div class="skill">Unreal Engine 5</div>
+                <div class="skill">Unity</div>
+                <div class="skill">Blueprints</div>
+                <div class="skill">Artificial Intelligence</div>
+                <div class="skill">A* Pathfinding</div>
+                <div class="skill">Gameplay Programming</div>
+                <div class="skill">Level Design</div>
+                <div class="skill">Gameplay Behavior</div>
+                <div class="skill">Level Concepts</div>
+                <div class="skill">TCP/IP Networking</div>
+                <div class="skill">Git & GitHub</div>
+                <div class="skill">Visual Studio</div>
+                <div class="skill">Object-Oriented Programming</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="container contact">
+
+            <h2 class="section-title">Contact</h2>
+
+            <p>
+                Interested in my work or want to get in touch?
+            </p>
+
+            <a class="button"
+               href="mailto:nick11@windstream.net">
+                Email Me
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 Nicholas Burtram | Game Development Portfolio
+        </p>
+
+    </footer>
 
 </body>
 
