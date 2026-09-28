@@ -8,6 +8,21 @@
     <title>Nicholas Burtram | Game Developer</title>
 
     <style>
+
+        /* =========================
+           COLOR PALETTE
+
+           Background:     #101214
+           Secondary:      #171a1f
+           Cards:          #20242b
+           Borders:        #343a43
+           Accent:         #f59e42
+           Accent Light:   #ffb866
+           Main Text:      #f5f5f5
+           Secondary Text: #b8bdc5
+           ========================= */
+
+
         * {
             box-sizing: border-box;
         }
@@ -19,8 +34,8 @@
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #0f172a;
-            color: #f1f5f9;
+            background-color: #101214;
+            color: #f5f5f5;
             line-height: 1.6;
         }
 
@@ -30,15 +45,18 @@
             margin: auto;
         }
 
-        /* NAVIGATION */
+
+        /* =========================
+           NAVIGATION
+           ========================= */
 
         nav {
-            background-color: #111827;
+            background-color: #171a1f;
             padding: 18px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #334155;
+            border-bottom: 1px solid #343a43;
         }
 
         nav .container {
@@ -49,27 +67,40 @@
 
         nav h2 {
             margin: 0;
-            color: #38bdf8;
+            color: #f59e42;
+            letter-spacing: 1px;
         }
 
         nav a {
-            color: #f1f5f9;
+            color: #f5f5f5;
             text-decoration: none;
             margin-left: 25px;
             font-weight: bold;
+            transition: color 0.2s ease;
         }
 
         nav a:hover {
-            color: #38bdf8;
+            color: #f59e42;
         }
 
-        /* HERO */
+
+        /* =========================
+           HERO
+           ========================= */
 
         .hero {
-            min-height: 70vh;
+            min-height: 75vh;
             display: flex;
             align-items: center;
             text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #24201b 0%,
+                    #17181b 40%,
+                    #101214 75%
+                );
         }
 
         .hero-content {
@@ -77,140 +108,196 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
+            font-size: 4rem;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
         }
 
         .hero h2 {
-            color: #38bdf8;
-            font-size: 1.8rem;
+            color: #f59e42;
+            font-size: 1.7rem;
             margin-top: 0;
+            font-weight: normal;
         }
 
         .hero p {
             max-width: 750px;
-            margin: 20px auto;
-            color: #cbd5e1;
+            margin: 25px auto;
+            color: #b8bdc5;
             font-size: 1.1rem;
         }
+
+
+        /* =========================
+           BUTTONS
+           ========================= */
 
         .button {
             display: inline-block;
-            background-color: #38bdf8;
-            color: #0f172a;
-            padding: 12px 24px;
+            background-color: #f59e42;
+            color: #101214;
+            padding: 13px 26px;
             margin: 10px 5px;
-            border-radius: 6px;
+            border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
+            transition: 0.2s ease;
         }
 
         .button:hover {
-            background-color: #7dd3fc;
+            background-color: #ffb866;
+            transform: translateY(-2px);
         }
 
-        /* SECTIONS */
+
+        /* =========================
+           SECTIONS
+           ========================= */
 
         section {
-            padding: 70px 0;
+            padding: 75px 0;
         }
 
-        section h2.section-title {
-            font-size: 2.3rem;
+        section:nth-of-type(even) {
+            background-color: #14171b;
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            margin-top: 0;
             margin-bottom: 35px;
-            border-bottom: 3px solid #38bdf8;
             padding-bottom: 10px;
+            border-bottom: 2px solid #f59e42;
         }
 
-        /* ABOUT */
+
+        /* =========================
+           ABOUT
+           ========================= */
 
         .about-text {
-            font-size: 1.1rem;
-            color: #cbd5e1;
             max-width: 900px;
+            font-size: 1.1rem;
+            color: #b8bdc5;
         }
 
-        /* PROJECTS */
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           PROJECTS
+           ========================= */
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(320px, 1fr)
+            );
             gap: 25px;
         }
 
         .project-card {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 12px;
+            background-color: #20242b;
+            border: 1px solid #343a43;
+            border-radius: 8px;
             padding: 28px;
-            transition: transform 0.2s ease;
+            position: relative;
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
+            border-color: #f59e42;
         }
 
         .project-card h3 {
-            color: #38bdf8;
+            color: #f59e42;
             font-size: 1.4rem;
             margin-top: 0;
+            margin-bottom: 15px;
         }
 
         .project-card p {
-            color: #cbd5e1;
+            color: #b8bdc5;
         }
 
         .technologies {
-            color: #f1f5f9 !important;
+            color: #e5e7eb !important;
         }
 
-        .project-link {
-            color: #38bdf8;
-            font-weight: bold;
-            text-decoration: none;
+        .technologies strong {
+            color: #ffffff;
         }
 
-        .project-link:hover {
-            text-decoration: underline;
-        }
 
-        /* SKILLS */
+        /* =========================
+           SKILLS
+           ========================= */
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+
             gap: 15px;
         }
 
         .skill {
-            background-color: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 8px;
+            background-color: #20242b;
+            border: 1px solid #343a43;
+            border-radius: 6px;
             padding: 18px;
             text-align: center;
             font-size: 1.05rem;
+
+            transition:
+                border-color 0.2s ease,
+                transform 0.2s ease;
         }
 
-        /* CONTACT */
+        .skill:hover {
+            border-color: #f59e42;
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           CONTACT
+           ========================= */
 
         .contact {
             text-align: center;
         }
 
         .contact p {
-            color: #cbd5e1;
+            color: #b8bdc5;
+            font-size: 1.1rem;
         }
 
-        /* FOOTER */
+
+        /* =========================
+           FOOTER
+           ========================= */
 
         footer {
+            background-color: #0b0d0f;
+            border-top: 1px solid #343a43;
             text-align: center;
             padding: 25px;
-            background-color: #111827;
-            color: #94a3b8;
+            color: #777d86;
         }
 
-        /* MOBILE */
+
+        /* =========================
+           MOBILE
+           ========================= */
 
         @media (max-width: 700px) {
 
@@ -223,85 +310,140 @@
             }
 
             nav a {
-                margin: 0 8px;
+                margin: 0 7px;
+                font-size: 0.9rem;
+            }
+
+            .hero {
+                min-height: 65vh;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.7rem;
             }
 
             .hero h2 {
-                font-size: 1.4rem;
+                font-size: 1.25rem;
             }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- NAVIGATION -->
+
+    <!-- =========================
+         NAVIGATION
+         ========================= -->
 
     <nav>
+
         <div class="container">
 
             <h2>Nicholas Burtram</h2>
 
             <div>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#projects">
+                    Projects
+                </a>
+
+                <a href="#skills">
+                    Skills
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
             </div>
 
         </div>
+
     </nav>
 
 
-    <!-- HERO -->
+    <!-- =========================
+         HERO
+         ========================= -->
 
     <header class="hero">
 
         <div class="container hero-content">
 
-            <h1>Nicholas Burtram</h1>
+            <h1>
+                Nicholas Burtram
+            </h1>
 
-            <h2>Game Developer | Programmer | Software Developer</h2>
+            <h2>
+                Game Developer
+                &nbsp;|&nbsp;
+                Programmer
+                &nbsp;|&nbsp;
+                Software Developer
+            </h2>
 
             <p>
-                Game developer focused on gameplay programming, level design,
-                artificial intelligence, and creating engaging interactive experiences.
+                Game developer focused on gameplay programming,
+                level design, artificial intelligence, and creating
+                engaging interactive experiences.
             </p>
 
-            <a class="button" href="#projects">View My Projects</a>
+            <a
+                class="button"
+                href="#projects">
+
+                View My Projects
+
+            </a>
 
         </div>
 
     </header>
 
 
-    <!-- ABOUT -->
+    <!-- =========================
+         ABOUT
+         ========================= -->
 
     <section id="about">
 
         <div class="container">
 
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">
+                About Me
+            </h2>
 
             <div class="about-text">
 
                 <p>
-                    I am a game developer, programmer, and software developer
-                    graduating from Full Sail University. I have experience with
-                    C++, C#, Java, Unreal Engine 5, Unity, artificial intelligence,
+                    I am a game developer, programmer, and software
+                    developer graduating from Full Sail University.
+                    I have experience with C++, C#, Java,
+                    Unreal Engine 5, Unity, artificial intelligence,
                     networking, and gameplay development.
                 </p>
 
                 <p>
-                    I particularly enjoy level design, gameplay behavior, and
-                    developing level concepts. I enjoy combining programming and
-                    design to create engaging gameplay experiences, from building
-                    gameplay systems and AI behaviors to designing the environments
-                    in which those systems come together.
+                    I particularly enjoy level design, gameplay
+                    behavior, and developing level concepts.
+                    I enjoy combining programming and design to
+                    create engaging gameplay experiences, from
+                    building gameplay systems and AI behaviors to
+                    designing the environments in which those
+                    systems come together.
                 </p>
 
             </div>
@@ -311,54 +453,74 @@
     </section>
 
 
-    <!-- PROJECTS -->
+    <!-- =========================
+         PROJECTS
+         ========================= -->
 
     <section id="projects">
 
         <div class="container">
 
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title">
+                Projects
+            </h2>
 
             <div class="project-grid">
 
 
-                <!-- UNREAL ENGINE AI AND COMBAT -->
+                <!-- UNREAL ENGINE PROJECT -->
 
                 <div class="project-card">
 
-                    <h3>Unreal Engine AI and Combat System</h3>
+                    <h3>
+                        Unreal Engine AI and Combat System
+                    </h3>
 
                     <p>
-                        Developed gameplay systems in Unreal Engine using C++ and
-                        Blueprints. The project includes AI-controlled agents,
-                        weapons, projectiles, health and damage systems, team
-                        assignments, animations, and combat behaviors.
+                        Developed gameplay systems in Unreal Engine
+                        using C++ and Blueprints. The project includes
+                        AI-controlled agents, weapons, projectiles,
+                        health and damage systems, team assignments,
+                        animations, and combat behaviors.
                     </p>
 
                     <p class="technologies">
+
                         <strong>Technologies:</strong>
-                        Unreal Engine 5, C++, Blueprints
+
+                        Unreal Engine 5,
+                        C++,
+                        Blueprints
+
                     </p>
 
                 </div>
 
 
-                <!-- A* PATH PLANNER -->
+                <!-- A* PROJECT -->
 
                 <div class="project-card">
 
-                    <h3>A* Hex Path Planner</h3>
+                    <h3>
+                        A* Hex Path Planner
+                    </h3>
 
                     <p>
-                        Created an A* pathfinding system for a hex-based map.
-                        The system calculates movement and heuristic costs,
-                        tracks explored nodes, and generates a path between
-                        a starting point and destination.
+                        Created an A* pathfinding system for a
+                        hex-based map. The system calculates movement
+                        and heuristic costs, tracks explored nodes,
+                        and generates a path between a starting point
+                        and destination.
                     </p>
 
                     <p class="technologies">
+
                         <strong>Technologies:</strong>
-                        C++, Artificial Intelligence, A* Search
+
+                        C++,
+                        Artificial Intelligence,
+                        A* Search
+
                     </p>
 
                 </div>
@@ -368,7 +530,9 @@
 
                 <div class="project-card">
 
-                    <h3>Brick Breaker</h3>
+                    <h3>
+                        Brick Breaker
+                    </h3>
 
                     <p>
                         Developed a Brick Breaker style game featuring
@@ -377,29 +541,42 @@
                     </p>
 
                     <p class="technologies">
+
                         <strong>Skills:</strong>
-                        Game Programming, Collision Detection, Gameplay Logic
+
+                        Game Programming,
+                        Collision Detection,
+                        Gameplay Logic
+
                     </p>
 
                 </div>
 
 
-                <!-- TCP CHAT SERVER -->
+                <!-- TCP SERVER -->
 
                 <div class="project-card">
 
-                    <h3>TCP Chat Server</h3>
+                    <h3>
+                        TCP Chat Server
+                    </h3>
 
                     <p>
-                        Developed a TCP chat server that supports multiple
-                        connected clients, user registration and login,
-                        private messages, public messages, command processing,
-                        and message logging.
+                        Developed a TCP chat server that supports
+                        multiple connected clients, user registration
+                        and login, private messages, public messages,
+                        command processing, and message logging.
                     </p>
 
                     <p class="technologies">
+
                         <strong>Technologies:</strong>
-                        C++, Winsock, TCP/IP, Networking
+
+                        C++,
+                        Winsock,
+                        TCP/IP,
+                        Networking
+
                     </p>
 
                 </div>
@@ -409,19 +586,107 @@
 
                 <div class="project-card">
 
-                    <h3>Calculator</h3>
+                    <h3>
+                        Calculator
+                    </h3>
 
                     <p>
-                        Developed a calculator application that performs common
-                        mathematical operations while practicing programming
-                        logic, user input, and application development.
+                        Developed a calculator application that
+                        performs common mathematical operations while
+                        practicing programming logic, user input,
+                        and application development.
                     </p>
 
                     <p class="technologies">
+
                         <strong>Skills:</strong>
-                        Programming Logic, User Input, Application Development
+
+                        Programming Logic,
+                        User Input,
+                        Application Development
+
                     </p>
 
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+         ========================= -->
+
+    <section id="skills">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Skills
+            </h2>
+
+            <div class="skills-grid">
+
+                <div class="skill">C++</div>
+
+                <div class="skill">C#</div>
+
+                <div class="skill">Java</div>
+
+                <div class="skill">
+                    Unreal Engine 5
+                </div>
+
+                <div class="skill">
+                    Unity
+                </div>
+
+                <div class="skill">
+                    Blueprints
+                </div>
+
+                <div class="skill">
+                    Artificial Intelligence
+                </div>
+
+                <div class="skill">
+                    A* Pathfinding
+                </div>
+
+                <div class="skill">
+                    Gameplay Programming
+                </div>
+
+                <div class="skill">
+                    Level Design
+                </div>
+
+                <div class="skill">
+                    Gameplay Behavior
+                </div>
+
+                <div class="skill">
+                    Level Concepts
+                </div>
+
+                <div class="skill">
+                    TCP/IP Networking
+                </div>
+
+                <div class="skill">
+                    Git &amp; GitHub
+                </div>
+
+                <div class="skill">
+                    Visual Studio
+                </div>
+
+                <div class="skill">
+                    Object-Oriented Programming
                 </div>
 
             </div>
@@ -431,55 +696,28 @@
     </section>
 
 
-    <!-- SKILLS -->
-
-    <section id="skills">
-
-        <div class="container">
-
-            <h2 class="section-title">Skills</h2>
-
-            <div class="skills-grid">
-
-                <div class="skill">C++</div>
-                <div class="skill">C#</div>
-                <div class="skill">Java</div>
-                <div class="skill">Unreal Engine 5</div>
-                <div class="skill">Unity</div>
-                <div class="skill">Blueprints</div>
-                <div class="skill">Artificial Intelligence</div>
-                <div class="skill">A* Pathfinding</div>
-                <div class="skill">Gameplay Programming</div>
-                <div class="skill">Level Design</div>
-                <div class="skill">Gameplay Behavior</div>
-                <div class="skill">Level Concepts</div>
-                <div class="skill">TCP/IP Networking</div>
-                <div class="skill">Git & GitHub</div>
-                <div class="skill">Visual Studio</div>
-                <div class="skill">Object-Oriented Programming</div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
+    <!-- =========================
+         CONTACT
+         ========================= -->
 
     <section id="contact">
 
         <div class="container contact">
 
-            <h2 class="section-title">Contact</h2>
+            <h2 class="section-title">
+                Contact
+            </h2>
 
             <p>
                 Interested in my work or want to get in touch?
             </p>
 
-            <a class="button"
-               href="mailto:nick11@windstream.net">
+            <a
+                class="button"
+                href="mailto:nick11@windstream.net">
+
                 Email Me
+
             </a>
 
         </div>
@@ -487,15 +725,19 @@
     </section>
 
 
-    <!-- FOOTER -->
+    <!-- =========================
+         FOOTER
+         ========================= -->
 
     <footer>
 
         <p>
-            © 2026 Nicholas Burtram | Game Development Portfolio
+            © 2026 Nicholas Burtram
+            | Game Development Portfolio
         </p>
 
     </footer>
+
 
 </body>
 
