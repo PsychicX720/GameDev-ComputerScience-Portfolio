@@ -11,17 +11,26 @@
 
         /* =========================
            COLOR PALETTE
-
-           Background:     #101214
-           Secondary:      #171a1f
-           Cards:          #20242b
-           Borders:        #343a43
-           Accent:         #f59e42
-           Accent Light:   #ffb866
-           Main Text:      #f5f5f5
-           Secondary Text: #b8bdc5
            ========================= */
 
+        :root {
+            --background: #101214;
+            --background-secondary: #14171b;
+            --nav: #171a1f;
+            --card: #20242b;
+            --border: #343a43;
+
+            --accent: #f59e42;
+            --accent-light: #ffb866;
+
+            --text: #f5f5f5;
+            --text-secondary: #b8bdc5;
+        }
+
+
+        /* =========================
+           GENERAL
+           ========================= */
 
         * {
             box-sizing: border-box;
@@ -34,8 +43,8 @@
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #101214;
-            color: #f5f5f5;
+            background-color: var(--background);
+            color: var(--text);
             line-height: 1.6;
         }
 
@@ -45,18 +54,36 @@
             margin: auto;
         }
 
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .section-description {
+            color: var(--text-secondary);
+            max-width: 750px;
+            margin-bottom: 40px;
+        }
+
 
         /* =========================
            NAVIGATION
            ========================= */
 
         nav {
-            background-color: #171a1f;
+            background-color: var(--nav);
             padding: 18px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #343a43;
+            border-bottom: 1px solid var(--border);
         }
 
         nav .container {
@@ -67,12 +94,12 @@
 
         nav h2 {
             margin: 0;
-            color: #f59e42;
+            color: var(--accent);
             letter-spacing: 1px;
         }
 
         nav a {
-            color: #f5f5f5;
+            color: var(--text);
             text-decoration: none;
             margin-left: 25px;
             font-weight: bold;
@@ -80,7 +107,7 @@
         }
 
         nav a:hover {
-            color: #f59e42;
+            color: var(--accent);
         }
 
 
@@ -114,7 +141,7 @@
         }
 
         .hero h2 {
-            color: #f59e42;
+            color: var(--accent);
             font-size: 1.7rem;
             margin-top: 0;
             font-weight: normal;
@@ -123,7 +150,7 @@
         .hero p {
             max-width: 750px;
             margin: 25px auto;
-            color: #b8bdc5;
+            color: var(--text-secondary);
             font-size: 1.1rem;
         }
 
@@ -134,7 +161,7 @@
 
         .button {
             display: inline-block;
-            background-color: #f59e42;
+            background-color: var(--accent);
             color: #101214;
             padding: 13px 26px;
             margin: 10px 5px;
@@ -145,29 +172,8 @@
         }
 
         .button:hover {
-            background-color: #ffb866;
+            background-color: var(--accent-light);
             transform: translateY(-2px);
-        }
-
-
-        /* =========================
-           SECTIONS
-           ========================= */
-
-        section {
-            padding: 75px 0;
-        }
-
-        section:nth-of-type(even) {
-            background-color: #14171b;
-        }
-
-        .section-title {
-            font-size: 2.4rem;
-            margin-top: 0;
-            margin-bottom: 35px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f59e42;
         }
 
 
@@ -175,36 +181,114 @@
            ABOUT
            ========================= */
 
+        #about {
+            background-color: var(--background-secondary);
+        }
+
         .about-text {
             max-width: 900px;
             font-size: 1.1rem;
-            color: #b8bdc5;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
+            color: var(--text-secondary);
         }
 
 
         /* =========================
-           PROJECTS
+           FEATURED PROJECTS
            ========================= */
+
+        .featured-projects {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .featured-card {
+            display: grid;
+            grid-template-columns: 45% 55%;
+
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .featured-image {
+            min-height: 320px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #292d34,
+                    #17191d
+                );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: #777d86;
+            font-size: 1rem;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .featured-content {
+            padding: 35px;
+        }
+
+        .featured-content h3 {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .project-type {
+            color: #8d949e;
+            margin-top: 0;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .featured-content p {
+            color: var(--text-secondary);
+        }
+
+        .technologies strong {
+            color: var(--text);
+        }
+
+
+        /* =========================
+           OTHER PROJECTS
+           ========================= */
+
+        #other-projects {
+            background-color: var(--background-secondary);
+        }
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(320px, 1fr)
-            );
+            grid-template-columns:
+                repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
 
         .project-card {
-            background-color: #20242b;
-            border: 1px solid #343a43;
+            background-color: var(--card);
+            border: 1px solid var(--border);
             border-radius: 8px;
             padding: 28px;
-            position: relative;
 
             transition:
                 transform 0.2s ease,
@@ -213,26 +297,17 @@
 
         .project-card:hover {
             transform: translateY(-5px);
-            border-color: #f59e42;
+            border-color: var(--accent);
         }
 
         .project-card h3 {
-            color: #f59e42;
-            font-size: 1.4rem;
+            color: var(--accent);
             margin-top: 0;
-            margin-bottom: 15px;
+            font-size: 1.4rem;
         }
 
         .project-card p {
-            color: #b8bdc5;
-        }
-
-        .technologies {
-            color: #e5e7eb !important;
-        }
-
-        .technologies strong {
-            color: #ffffff;
+            color: var(--text-secondary);
         }
 
 
@@ -242,28 +317,25 @@
 
         .skills-grid {
             display: grid;
-
             grid-template-columns:
                 repeat(auto-fit, minmax(180px, 1fr));
-
             gap: 15px;
         }
 
         .skill {
-            background-color: #20242b;
-            border: 1px solid #343a43;
+            background-color: var(--card);
+            border: 1px solid var(--border);
             border-radius: 6px;
             padding: 18px;
             text-align: center;
-            font-size: 1.05rem;
 
             transition:
-                border-color 0.2s ease,
-                transform 0.2s ease;
+                transform 0.2s ease,
+                border-color 0.2s ease;
         }
 
         .skill:hover {
-            border-color: #f59e42;
+            border-color: var(--accent);
             transform: translateY(-3px);
         }
 
@@ -272,12 +344,16 @@
            CONTACT
            ========================= */
 
+        #contact {
+            background-color: var(--background-secondary);
+        }
+
         .contact {
             text-align: center;
         }
 
         .contact p {
-            color: #b8bdc5;
+            color: var(--text-secondary);
             font-size: 1.1rem;
         }
 
@@ -288,7 +364,7 @@
 
         footer {
             background-color: #0b0d0f;
-            border-top: 1px solid #343a43;
+            border-top: 1px solid var(--border);
             text-align: center;
             padding: 25px;
             color: #777d86;
@@ -299,7 +375,7 @@
            MOBILE
            ========================= */
 
-        @media (max-width: 700px) {
+        @media (max-width: 800px) {
 
             nav .container {
                 flex-direction: column;
@@ -326,23 +402,28 @@
                 font-size: 1.25rem;
             }
 
-            .project-grid {
+            .featured-card {
                 grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                min-height: 220px;
+            }
+
+            .featured-content {
+                padding: 25px;
             }
 
         }
 
     </style>
-
 </head>
 
 
 <body>
 
 
-    <!-- =========================
-         NAVIGATION
-         ========================= -->
+    <!-- ================= NAVIGATION ================= -->
 
     <nav>
 
@@ -351,23 +432,11 @@
             <h2>Nicholas Burtram</h2>
 
             <div>
-
-                <a href="#about">
-                    About
-                </a>
-
-                <a href="#projects">
-                    Projects
-                </a>
-
-                <a href="#skills">
-                    Skills
-                </a>
-
-                <a href="#contact">
-                    Contact
-                </a>
-
+                <a href="#about">About</a>
+                <a href="#featured">Games</a>
+                <a href="#other-projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
             </div>
 
         </div>
@@ -375,17 +444,13 @@
     </nav>
 
 
-    <!-- =========================
-         HERO
-         ========================= -->
+    <!-- ================= HERO ================= -->
 
     <header class="hero">
 
         <div class="container hero-content">
 
-            <h1>
-                Nicholas Burtram
-            </h1>
+            <h1>Nicholas Burtram</h1>
 
             <h2>
                 Game Developer
@@ -401,12 +466,8 @@
                 engaging interactive experiences.
             </p>
 
-            <a
-                class="button"
-                href="#projects">
-
-                View My Projects
-
+            <a class="button" href="#featured">
+                View My Work
             </a>
 
         </div>
@@ -414,17 +475,13 @@
     </header>
 
 
-    <!-- =========================
-         ABOUT
-         ========================= -->
+    <!-- ================= ABOUT ================= -->
 
     <section id="about">
 
         <div class="container">
 
-            <h2 class="section-title">
-                About Me
-            </h2>
+            <h2 class="section-title">About Me</h2>
 
             <div class="about-text">
 
@@ -437,13 +494,12 @@
                 </p>
 
                 <p>
-                    I particularly enjoy level design, gameplay
-                    behavior, and developing level concepts.
-                    I enjoy combining programming and design to
-                    create engaging gameplay experiences, from
-                    building gameplay systems and AI behaviors to
-                    designing the environments in which those
-                    systems come together.
+                    I particularly enjoy level design, gameplay behavior,
+                    and developing level concepts. I enjoy combining
+                    programming and design to create engaging gameplay
+                    experiences, from building gameplay systems and AI
+                    behaviors to designing the environments in which
+                    those systems come together.
                 </p>
 
             </div>
@@ -453,57 +509,227 @@
     </section>
 
 
-    <!-- =========================
-         PROJECTS
-         ========================= -->
+    <!-- ================= FEATURED PROJECTS ================= -->
 
-    <section id="projects">
+    <section id="featured">
+
+        <div class="container">
+
+            <h2 class="section-title">Featured Game Projects</h2>
+
+            <p class="section-description">
+                A selection of projects showcasing my work in gameplay
+                programming, artificial intelligence, multiplayer systems,
+                and level design.
+            </p>
+
+
+            <div class="featured-projects">
+
+
+                <!-- ===== UNREAL AI PROJECT ===== -->
+
+                <article class="featured-card">
+
+                    <div class="featured-image">
+                        Unreal Engine AI &amp; Combat System
+                        <br>
+                        Screenshot / Gameplay Coming Soon
+                    </div>
+
+                    <div class="featured-content">
+
+                        <h3>
+                            Unreal Engine AI &amp; Combat System
+                        </h3>
+
+                        <p class="project-type">
+                            Gameplay Programming • AI • Combat
+                        </p>
+
+                        <p>
+                            Developed a collection of gameplay systems
+                            in Unreal Engine using C++ and Blueprints.
+                            The project features AI-controlled agents,
+                            weapons, projectiles, health and damage
+                            systems, team assignments, animations,
+                            and combat behaviors.
+                        </p>
+
+                        <p class="technologies">
+                            <strong>Technologies:</strong>
+                            Unreal Engine 5, C++, Blueprints,
+                            Artificial Intelligence
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ===== MISREFLECTION ===== -->
+
+                <article class="featured-card">
+
+                    <div class="featured-image">
+                        Misreflection
+                        <br>
+                        Screenshot / Gameplay Coming Soon
+                    </div>
+
+                    <div class="featured-content">
+
+                        <h3>Misreflection</h3>
+
+                        <p class="project-type">
+                            Game Development • AI • Multiplayer
+                        </p>
+
+                        <p>
+                            Developed in Unity 6, Misreflection is a
+                            mirror-maze game featuring AI-controlled
+                            opponents for single-player gameplay,
+                            character customization, and online
+                            multiplayer functionality for playing
+                            with friends.
+                        </p>
+
+                        <p>
+                            The project combines maze-based level design,
+                            AI behavior, player customization, and
+                            multiplayer gameplay systems.
+                        </p>
+
+                        <p class="technologies">
+                            <strong>Technologies:</strong>
+                            Unity 6, C#, Artificial Intelligence,
+                            Multiplayer
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ===== HALO FAN GAME ===== -->
+
+                <article class="featured-card">
+
+                    <div class="featured-image">
+                        Halo Fan Game
+                        <br>
+                        Screenshot / Gameplay Coming Soon
+                    </div>
+
+                    <div class="featured-content">
+
+                        <h3>Halo Fan Game</h3>
+
+                        <p class="project-type">
+                            Game Jam • Gameplay Programming • AI
+                        </p>
+
+                        <p>
+                            A non-commercial fan project developed in
+                            Unity 6 for a game jam and inspired by the
+                            Halo franchise.
+                        </p>
+
+                        <p>
+                            The game is a top-down 3D wave-based survival
+                            shooter in which the player controls a Spartan
+                            fighting waves of Covenant enemies. The project
+                            focuses on combat systems, enemy encounters,
+                            survival mechanics, and fast-paced gameplay.
+                        </p>
+
+                        <p class="technologies">
+                            <strong>Technologies:</strong>
+                            Unity 6, C#, Gameplay Programming,
+                            Artificial Intelligence, 3D Development
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ===== ECHOING SHOTS ===== -->
+
+                <article class="featured-card">
+
+                    <div class="featured-image">
+                        Echoing Shots
+                        <br>
+                        Screenshot / Gameplay Coming Soon
+                    </div>
+
+                    <div class="featured-content">
+
+                        <h3>Echoing Shots</h3>
+
+                        <p class="project-type">
+                            Level Design • Team Development
+                        </p>
+
+                        <p>
+                            Developed as part of a team project at
+                            Full Sail University, where I served
+                            primarily as the project's level designer.
+                        </p>
+
+                        <p>
+                            I was responsible for the level design
+                            throughout the game, including environment
+                            layouts, player flow, gameplay spaces, and
+                            the placement and structure of areas used
+                            during gameplay. The project helped develop
+                            my approach to designing environments around
+                            the intended player experience.
+                        </p>
+
+                        <p class="technologies">
+                            <strong>Focus:</strong>
+                            Unity, Level Design, Environment Design,
+                            Player Flow, Team Development
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= OTHER PROJECTS ================= -->
+
+    <section id="other-projects">
 
         <div class="container">
 
             <h2 class="section-title">
-                Projects
+                Programming &amp; Technical Projects
             </h2>
+
+            <p class="section-description">
+                Additional projects demonstrating programming,
+                algorithms, networking, and gameplay development.
+            </p>
+
 
             <div class="project-grid">
 
 
-                <!-- UNREAL ENGINE PROJECT -->
+                <!-- A* PATHFINDING -->
 
                 <div class="project-card">
 
-                    <h3>
-                        Unreal Engine AI and Combat System
-                    </h3>
-
-                    <p>
-                        Developed gameplay systems in Unreal Engine
-                        using C++ and Blueprints. The project includes
-                        AI-controlled agents, weapons, projectiles,
-                        health and damage systems, team assignments,
-                        animations, and combat behaviors.
-                    </p>
-
-                    <p class="technologies">
-
-                        <strong>Technologies:</strong>
-
-                        Unreal Engine 5,
-                        C++,
-                        Blueprints
-
-                    </p>
-
-                </div>
-
-
-                <!-- A* PROJECT -->
-
-                <div class="project-card">
-
-                    <h3>
-                        A* Hex Path Planner
-                    </h3>
+                    <h3>A* Hex Path Planner</h3>
 
                     <p>
                         Created an A* pathfinding system for a
@@ -514,13 +740,8 @@
                     </p>
 
                     <p class="technologies">
-
                         <strong>Technologies:</strong>
-
-                        C++,
-                        Artificial Intelligence,
-                        A* Search
-
+                        C++, Artificial Intelligence, A* Search
                     </p>
 
                 </div>
@@ -530,53 +751,39 @@
 
                 <div class="project-card">
 
-                    <h3>
-                        Brick Breaker
-                    </h3>
+                    <h3>Brick Breaker</h3>
 
                     <p>
-                        Developed a Brick Breaker style game featuring
+                        Developed a Brick Breaker-style game featuring
                         player-controlled movement, ball interaction,
                         collision detection, and breakable game objects.
                     </p>
 
                     <p class="technologies">
-
-                        <strong>Skills:</strong>
-
-                        Game Programming,
-                        Collision Detection,
+                        <strong>Focus:</strong>
+                        Game Programming, Collision Detection,
                         Gameplay Logic
-
                     </p>
 
                 </div>
 
 
-                <!-- TCP SERVER -->
+                <!-- TCP CHAT SERVER -->
 
                 <div class="project-card">
 
-                    <h3>
-                        TCP Chat Server
-                    </h3>
+                    <h3>TCP Chat Server</h3>
 
                     <p>
-                        Developed a TCP chat server that supports
-                        multiple connected clients, user registration
-                        and login, private messages, public messages,
-                        command processing, and message logging.
+                        Developed a TCP chat server supporting multiple
+                        connected clients, user registration and login,
+                        private and public messaging, command processing,
+                        and message logging.
                     </p>
 
                     <p class="technologies">
-
                         <strong>Technologies:</strong>
-
-                        C++,
-                        Winsock,
-                        TCP/IP,
-                        Networking
-
+                        C++, Winsock, TCP/IP, Networking
                     </p>
 
                 </div>
@@ -586,25 +793,19 @@
 
                 <div class="project-card">
 
-                    <h3>
-                        Calculator
-                    </h3>
+                    <h3>Calculator</h3>
 
                     <p>
-                        Developed a calculator application that
-                        performs common mathematical operations while
-                        practicing programming logic, user input,
-                        and application development.
+                        Developed a calculator application supporting
+                        common mathematical operations while applying
+                        programming logic, user input handling, and
+                        application development concepts.
                     </p>
 
                     <p class="technologies">
-
-                        <strong>Skills:</strong>
-
-                        Programming Logic,
-                        User Input,
+                        <strong>Focus:</strong>
+                        Programming Logic, User Input,
                         Application Development
-
                     </p>
 
                 </div>
@@ -617,37 +818,25 @@
     </section>
 
 
-    <!-- =========================
-         SKILLS
-         ========================= -->
+    <!-- ================= SKILLS ================= -->
 
     <section id="skills">
 
         <div class="container">
 
             <h2 class="section-title">
-                Skills
+                Skills &amp; Technologies
             </h2>
 
             <div class="skills-grid">
 
                 <div class="skill">C++</div>
-
                 <div class="skill">C#</div>
-
                 <div class="skill">Java</div>
 
-                <div class="skill">
-                    Unreal Engine 5
-                </div>
-
-                <div class="skill">
-                    Unity
-                </div>
-
-                <div class="skill">
-                    Blueprints
-                </div>
+                <div class="skill">Unreal Engine 5</div>
+                <div class="skill">Unity 6</div>
+                <div class="skill">Blueprints</div>
 
                 <div class="skill">
                     Artificial Intelligence
@@ -674,6 +863,10 @@
                 </div>
 
                 <div class="skill">
+                    Multiplayer Development
+                </div>
+
+                <div class="skill">
                     TCP/IP Networking
                 </div>
 
@@ -696,9 +889,7 @@
     </section>
 
 
-    <!-- =========================
-         CONTACT
-         ========================= -->
+    <!-- ================= CONTACT ================= -->
 
     <section id="contact">
 
@@ -725,9 +916,7 @@
     </section>
 
 
-    <!-- =========================
-         FOOTER
-         ========================= -->
+    <!-- ================= FOOTER ================= -->
 
     <footer>
 
